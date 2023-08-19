@@ -1,12 +1,10 @@
-(function ($) {
-    'use strict';
+document.addEventListener('DOMContentLoaded', function() {
+    // Targeting buttons with the specific onclick attribute
+    var buttons = document.querySelectorAll('button[onclick^="location.href=\'https://v1-generatepress.1309816.xyz/contact-us/\'"]');
 
-    $(document).ready(function () {
-        // Target anchor tags with href 'https://v1-generatepress.1309816.xyz/contact-us/'
-        $('a[href="https://v1-generatepress.1309816.xyz/contact-us/"]').click(function (event) {
-            event.preventDefault();  // Prevent default click action
-            window.open($(this).attr('href'), '_blank');  // Open the link in a new tab
-        });
+    buttons.forEach(function(button) {
+        button.onclick = function() {
+            window.open('https://v1-generatepress.1309816.xyz/contact-us/', '_blank');
+        };
     });
-
-})(jQuery);
+});
