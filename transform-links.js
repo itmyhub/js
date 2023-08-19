@@ -1,16 +1,18 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Select all anchor links (or you can modify the selector to select specific links)
-    let links = document.querySelectorAll('a');
+document.addEventListener("DOMContentLoaded", function() {
+    var anchors = document.querySelectorAll('a');
+    
+    anchors.forEach(function(anchor) {
+        var href = anchor.getAttribute('href');
+        var text = anchor.textContent;
 
-    links.forEach(function(link) {
-        // Create a new button element
-        let button = document.createElement('button');
-        button.innerHTML = link.innerHTML;
+        // Create a new button
+        var button = document.createElement('button');
+        button.textContent = text;
         button.onclick = function() {
-            location.href = link.href;
+            window.location.href = href;
         };
 
-        // Replace the link with the button
-        link.parentNode.replaceChild(button, link);
+        // Replace the anchor with the button
+        anchor.parentNode.replaceChild(button, anchor);
     });
 });
