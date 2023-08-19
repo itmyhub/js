@@ -1,17 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Remove the "Skip to content" button if present
-    var skipButton = document.querySelector('button:contains("Skip to content")');
-    if (skipButton) {
-        skipButton.remove();
-    }
+(function ($) {
+    'use strict';
 
-    // Reset the background color of all links
-    var links = document.querySelectorAll('a');
-    links.forEach(function(link) {
-        link.style.backgroundColor = '';
-        // Set target to _blank for links without a target
-        if (!link.target) {
-            link.target = '_blank';
-        }
+    $(document).ready(function () {
+        // Target anchor tags with href 'https://v1-generatepress.1309816.xyz/contact-us/'
+        $('a[href="https://v1-generatepress.1309816.xyz/contact-us/"]').click(function (event) {
+            event.preventDefault();  // Prevent default click action
+            window.open($(this).attr('href'), '_blank');  // Open the link in a new tab
+        });
     });
-});
+
+})(jQuery);
